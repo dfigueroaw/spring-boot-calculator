@@ -21,4 +21,6 @@ public class CalculatorRepository {
         return a / b;
     }
 
+    double exponenciacion(double a, double b) { return Math.pow(a, b) ; }
+
 }
