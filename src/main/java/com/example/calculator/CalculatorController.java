@@ -50,5 +50,17 @@ public class CalculatorController {
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Error aritmético: " + potenciacionException.getMessage());
         }
     }
-    
+
+    @GetMapping("/factorial/{n}")
+    public ResponseEntity<?> factorial(@PathVariable int n) {
+        try {
+            long result = calculatorService.calcularFactorial(n);
+            return ResponseEntity.ok(result);
+        } catch (ArithmeticException factorialException) {
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Error aritmético: " + factorialException.getMessage());
+        } catch (IllegalArgumentException factorialException) {
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Error al procesar el argumento: " + factorialException.getMessage());
+        }
+    }
+
 }

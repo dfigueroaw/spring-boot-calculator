@@ -41,4 +41,10 @@ public class CalculatorService {
         return calculatorRepository.exponenciacion(a, b);
     }
 
+    public long calcularFactorial(int n) {
+        if (n < 0) throw new ArithmeticException("El argumento no puede ser negativo");
+        if (n > 20) throw new IllegalArgumentException("El resultado es un número muy grande...");
+        return calculatorRepository.factorial(n);
+    }
+
 }

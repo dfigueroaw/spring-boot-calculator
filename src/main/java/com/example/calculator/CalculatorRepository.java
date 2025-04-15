@@ -21,6 +21,11 @@ public class CalculatorRepository {
         return a / b;
     }
 
-    double exponenciacion(double a, double b) { return Math.pow(a, b) ; }
+    double exponenciacion(double a, double b) { return Math.pow(a, b); }
+
+    long factorial(int n) {
+        if (n < 2) return 1;
+        return n * factorial(n - 1);
+    }
 
 }
