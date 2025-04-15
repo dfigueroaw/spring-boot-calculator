@@ -28,4 +28,9 @@ public class CalculatorService {
         return calculatorRepository.division(a, b);
     }
 
+    public double potenciar(double a, double b) {
+        if (a == 0 & b == 0) throw new ArithmeticException("Indefinido");
+        return calculatorRepository.potenciacion(a, b);
+    }
+
 }
