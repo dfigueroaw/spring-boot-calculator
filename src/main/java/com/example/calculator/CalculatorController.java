@@ -37,17 +37,17 @@ public class CalculatorController {
             Double result = calculatorService.dividir(a, b);
             return ResponseEntity.ok(result);
         } catch (ArithmeticException divisionException) {
-            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Error aritmetico: " + divisionException.getMessage());
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Error aritmético: " + divisionException.getMessage());
         }
     }
 
-    @GetMapping("/potenciacion/{a}/{b}")
-    public ResponseEntity<?> potenciacion(@PathVariable double a, @PathVariable double b){
+    @GetMapping("/exponenciacion/{a}/{b}")
+    public ResponseEntity<?> exponenciacion(@PathVariable double a, @PathVariable double b){
         try {
             double result = calculatorService.exponenciar(a, b);
             return ResponseEntity.ok(result);
         } catch (ArithmeticException potenciacionException) {
-            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Error aritmetico: " + potenciacionException.getMessage());
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Error aritmético: " + potenciacionException.getMessage());
         }
     }
     
