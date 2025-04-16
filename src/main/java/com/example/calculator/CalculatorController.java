@@ -61,6 +61,17 @@ public class CalculatorController {
         } catch (IllegalArgumentException factorialException) {
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Error al procesar el argumento: " + factorialException.getMessage());
         }
+
+    }
+
+    @GetMapping("/raiz/{a}/{b}")
+    public ResponseEntity<?> raiz(@PathVariable double a, @PathVariable double b) {
+        try {
+            double result = calculatorService.radicar(a, b);
+            return ResponseEntity.ok(result);
+        } catch (ArithmeticException raizException) {
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Error aritmético: " + raizException.getMessage());
+        }
     }
 
 }

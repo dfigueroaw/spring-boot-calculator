@@ -47,4 +47,9 @@ public class CalculatorService {
         return calculatorRepository.factorial(n);
     }
 
+    public double radicar(double a, double b) {
+        if (b == 0) throw new ArithmeticException("El índice no puede ser cero");
+        return calculatorRepository.raiz(a,b);
+    }
+
 }

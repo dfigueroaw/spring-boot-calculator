@@ -23,6 +23,8 @@ public class CalculatorRepository {
 
     double exponenciacion(double a, double b) { return Math.pow(a, b); }
 
+    double raiz(double a, double b) { return Math.pow(a, (1/b)); }
+
     long factorial(int n) {
         if (n < 2) return 1;
         return n * factorial(n - 1);
