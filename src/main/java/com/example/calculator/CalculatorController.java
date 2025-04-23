@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -7,11 +8,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class CalculatorController {
 
-    private final CalculatorService calculatorService;
-
-    public CalculatorController(CalculatorService calculatorService) {
-        this.calculatorService = calculatorService;
-    }
+    @Autowired
+    private CalculatorService calculatorService;
 
     @GetMapping("/suma/{a}/{b}")
     public ResponseEntity<Double> suma(@PathVariable double a, @PathVariable double b) {
@@ -34,7 +32,7 @@ public class CalculatorController {
     @GetMapping("/division/{a}/{b}")
     public ResponseEntity<?> division(@PathVariable double a, @PathVariable double b) {
         try {
-            Double result = calculatorService.dividir(a, b);
+            double result = calculatorService.dividir(a, b);
             return ResponseEntity.ok(result);
         } catch (ArithmeticException divisionException) {
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Error aritmético: " + divisionException.getMessage());
