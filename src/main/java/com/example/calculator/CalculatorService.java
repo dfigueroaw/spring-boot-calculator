@@ -39,10 +39,11 @@ public class CalculatorService {
         if (n < 0) throw new ArithmeticException("El argumento no puede ser negativo");
         if (n > 20) throw new IllegalArgumentException("El resultado es un número muy grande...");
         if (n < 2) return 1;
-        for (int i = 1; i < n; i++) {
-            n *= i;
+        long result = 1;
+        for (int i = 2; i <= n; i++) {
+            result *= i;
         }
-        return n;
+        return result;
     }
 
 }
